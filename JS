@@ -1,0 +1,31 @@
+var addd = document.querySelector('.add');
+var addbtn = document.querySelector('.btn');
+var list = document.querySelector('.items');
+var searchh = document.querySelector('.search')
+
+ addbtn.addEventListener('click', function(event){
+     var input = addd.value;
+     
+     list.innerHTML += `<li class="list-group-item">${input}</li>`;
+     addd.value = '';
+ })
+
+
+
+searchh.addEventListener('input', function (event) {
+    input = searchh.value;
+    var itemlist = document.getElementsByClassName('list-group-item');
+    for (let item of itemlist) {
+        upperitem = item.innerHTML.toUpperCase();
+
+        upperinput = input.toUpperCase();
+        if (!upperitem.includes(upperinput)) {
+            item.style.display = 'none';
+
+        }
+
+
+    }
+
+
+})
